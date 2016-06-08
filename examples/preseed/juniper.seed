@@ -87,4 +87,4 @@ d-i grub-installer/only_debian boolean true
 # still a usable /target directory. You can chroot to /target and use it
 # directly, or use the apt-install and in-target commands to easily install
 # packages and run commands in the target system.
-#d-i preseed/late_command string /bin/sh /cdrom/scripts/preseed_finish.sh
+d-i preseed/late_command string /bin/sh /cdrom/scripts/preseed_finish.sh

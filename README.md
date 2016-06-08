@@ -7,8 +7,8 @@ This project shows how to install Juniper vSRX on a Lanner FW-7551d
 - Lanner FW-7551d
 - Basic knowledge of Ubuntu 14.04.4
   - For a manual install of Ubuntu follow installation instructions on [how to install ubuntu on Lanner FW-7551d] (https://github.com/jorgebonilla/Lanner_FW7551d_Ubuntu)
-- Serial Connection: Make sure to check out the [Serial Configuration Page](./serial.md)
-- Prep the [Ubuntu bootable USB](./ubuntu_usb.md)
+- Serial Connection: Make sure to check out the [Serial Configuration Page](./docs/serial.md)
+- Prep the [Ubuntu bootable USB](./docs/ubuntu_usb.md)
 
 ##Ubuntu 14.04.4 installation
   1.- Boot from Ubuntu USB drive. If this is the first time please run the disk and memory check. After that select **Install via Console**.
@@ -318,3 +318,61 @@ This project shows how to install Juniper vSRX on a Lanner FW-7551d
   sudo cp ./interfaces /etc/network/interfaces
   sudo shutdown -r now
   ```
+  13.- verify all the interfaces and bridges are up:
+
+  ```
+  juniper@ubuntu:~$ ifconfig
+  em1       Link encap:Ethernet  HWaddr 00:90:0b:43:7d:1c
+            UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+            [...]
+  eth0      Link encap:Ethernet  HWaddr 00:90:0b:43:7d:1e
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  eth1      Link encap:Ethernet  HWaddr 00:90:0b:43:7d:1f
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  eth2      Link encap:Ethernet  HWaddr 00:90:0b:43:7d:20
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  eth3      Link encap:Ethernet  HWaddr 00:90:0b:43:7d:21
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  fxp0-vsrx Link encap:Ethernet  HWaddr 00:90:0b:43:7d:1c
+            inet addr:192.168.2.51  Bcast:192.168.2.255  Mask:255.255.255.0
+            inet6 addr: fe80::290:bff:fe43:7d1c/64 Scope:Link
+            UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+            [...]
+  ge-0.0.0-vsrx Link encap:Ethernet  HWaddr 00:90:0b:43:7d:1d
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  ge-0.0.1-vsrx Link encap:Ethernet  HWaddr 00:90:0b:43:7d:1e
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  ge-0.0.2-vsrx Link encap:Ethernet  HWaddr 00:90:0b:43:7d:1f
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  ge-0.0.3-vsrx Link encap:Ethernet  HWaddr 00:90:0b:43:7d:20
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  lo        Link encap:Local Loopback
+            inet addr:127.0.0.1  Mask:255.0.0.0
+            inet6 addr: ::1/128 Scope:Host
+            UP LOOPBACK RUNNING  MTU:65536  Metric:1
+            [...]
+  p1p1      Link encap:Ethernet  HWaddr 00:90:0b:43:7d:1d
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            [...]
+  virbr0    Link encap:Ethernet  HWaddr 0e:ee:4d:d8:6a:f5
+            inet addr:192.168.122.1  Bcast:192.168.122.255  Mask:255.255.255.0
+            UP BROADCAST MULTICAST  MTU:1500  Metric:1
+            RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+            TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+            collisions:0 txqueuelen:0
+            RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)       
+ ```
+
+ 14.- Execute vSRX installation script:
+
+ ```
+ /home/juniper/install_vsrx.sh   
+```
