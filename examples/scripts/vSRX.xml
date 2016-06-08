@@ -1,0 +1,22 @@
+<network>
+  <name>ge-0-0-0</name>
+  <forward mode="bridge">
+    <interface dev="p1p1"/>
+  </forward>
+  <name>ge-0-0-1</name>
+  <forward mode="bridge">
+    <interface dev="eth0"/>
+  </forward>
+  <name>ge-0-0-2</name>
+  <forward mode="bridge">
+    <interface dev="eth1"/>
+  </forward>
+  <name>ge-0-0-3</name>
+  <forward mode="bridge">
+    <interface dev="eth2"/>
+  </forward>
+  <name>ge-0-0-4</name>
+  <forward mode="bridge">
+    <interface dev="eth3"/>
+  </forward>
+</network>

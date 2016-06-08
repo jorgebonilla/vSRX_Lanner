@@ -1,0 +1,67 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+# Physically the first port on the box
+# Mapped to fxp0 inside of vSRX
+auto em1
+iface em1 inet manual
+
+# The second network interface
+# Physically the second port on the box
+# Mapped to ge-0/0/0 inside of vSRX
+auto p1p1
+iface p1p1 inet manual
+
+# The third network interface
+# Physically the third port on the box
+# Mapped to ge-0/0/1 inside of vSRX
+auto eth0
+iface eth0 inet manual
+
+# The fourth network interface
+# Physically the fourth port on the box
+# Mapped to ge-0/0/2 inside of vSRX
+auto eth1
+iface eth1 inet manual
+
+# The fifth network interface
+# Physically the fifth port on the box
+# Mapped to ge-0/0/3 inside of vSRX
+auto eth2
+iface eth2 inet manual
+
+# The sixth network interface
+# Physically the sixth port on the box
+# Mapped to ge-0/0/4 inside of vSRX
+auto eth3
+iface eth3 inet manual
+
+# Bridge setup
+auto fxp0-vSRXVM
+ iface fxp0-vSRXVM  inet dhcp
+    bridge_ports em1
+
+auto ge-0.0.0_vSRXVM
+ iface ge-0.0.0_vSRXVM inet manual
+    bridge_ports p1p1
+
+auto ge-0.0.1_vSRXVM
+ iface ge-0.0.1_vSRXVM inet manual
+    bridge_ports eth0
+
+auto ge-0.0.2_vSRXVM
+ iface ge-0.0.2_vSRXVM inet manual
+    bridge_ports eth1
+
+auto ge-0.0.3_vSRXVM
+ iface ge-0.0.3_vSRXVM inet manual
+    bridge_ports eth2
+
+auto ge-0.0.4_vSRXVM
+ iface ge-0.0.4_vSRXVM inet manual
+    bridge_ports eth3
