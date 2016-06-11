@@ -7,11 +7,13 @@ virt-install  --name vsrx \
                     --vcpus=2 \
                     --arch=x86_64 \
                     --disk path=/home/juniper/media-vsrx-vmdisk-15.1X49-D40.6.qcow2,size=16,device=disk,bus=ide,format=qcow2 \
+                    --noreboot \
+                    --autostart \
                     --import
 
 #Automatically start vSRX
-virsh autostart vsrx
-virsh destroy vsrx
+#virsh autostart vsrx
+#virsh destroy vsrx
 
 virsh attach-interface  --domain vsrx \
                         --type bridge \
@@ -48,4 +50,4 @@ virsh attach-interface  --domain vsrx \
                         --source ge-0.0.4-vsrx \
                         --model virtio \
                         --config
-#virsh start vsrx
+virsh start vsrx

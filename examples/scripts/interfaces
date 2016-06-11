@@ -42,26 +42,26 @@ auto eth3
 iface eth3 inet manual
 
 # Bridge setup
-auto fxp0-vSRXVM
- iface fxp0-vSRXVM  inet dhcp
+auto fxp0-vsrx
+ iface fxp0-vsrx  inet dhcp
     bridge_ports em1
 
-auto ge-0.0.0_vSRXVM
- iface ge-0.0.0_vSRXVM inet manual
+auto ge-0.0.0-vsrx
+ iface ge-0.0.0-vsrx inet manual
     bridge_ports p1p1
 
-auto ge-0.0.1_vSRXVM
- iface ge-0.0.1_vSRXVM inet manual
+auto ge-0.0.1-vsrx
+ iface ge-0.0.1-vsrx inet manual
     bridge_ports eth0
 
-auto ge-0.0.2_vSRXVM
- iface ge-0.0.2_vSRXVM inet manual
+auto ge-0.0.2-vsrx
+ iface ge-0.0.2-vsrx inet manual
     bridge_ports eth1
 
-auto ge-0.0.3_vSRXVM
- iface ge-0.0.3_vSRXVM inet manual
+auto ge-0.0.3-vsrx
+ iface ge-0.0.3-vsrx inet manual
     bridge_ports eth2
 
-auto ge-0.0.4_vSRXVM
- iface ge-0.0.4_vSRXVM inet manual
+auto ge-0.0.4-vsrx
+ iface ge-0.0.4-vsrx inet manual
     bridge_ports eth3
